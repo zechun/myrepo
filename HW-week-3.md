@@ -48,7 +48,8 @@ colnames(missed_dep_flights)[colSums(is.na(missed_dep_flights)) > 0]
 
 There are 8255 flights with missing departure time, among these flights,
 the variables dep_delay, arr_time, arr_delay, tailname, and air_time are
-also missing.
+also missing.These rows might represent the flights that have never
+departed.
 
 2.Currently dep_time and sched_dep_time are convenient to look at, but
 hard to compute with because they’re not really continuous numbers.
@@ -108,4 +109,5 @@ flights %>%
 ![](HW-week-3_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
 According the graph, we see a general trend that the greater the average
-departure delay, the larger the proportion of flights cancelled.
+departure delay, the larger the proportion of flights cancelled. There
+seems a pattern of positive correlation between these two variables.

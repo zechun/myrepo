@@ -27,7 +27,7 @@ missed_dep_flights <- filter(flights, is.na(dep_time))
 colnames(missed_dep_flights)[colSums(is.na(missed_dep_flights)) > 0]
 ```
 
-There are 8255 flights with missing departure time, among these flights, the variables dep_delay, arr_time, arr_delay, tailname, and air_time are also missing.
+There are 8255 flights with missing departure time, among these flights, the variables dep_delay, arr_time, arr_delay, tailname, and air_time are also missing.These rows might represent the flights that have never departed.
 
 
 
@@ -44,6 +44,7 @@ flights %>%
          sched_dep_time_in_minutes = sched_dep_hour * 60 + sched_dep_minute)  #representation of scheduled departure time in minutes          
 ```
 
+The more convenient format of departure time representation is shown in the tibble above.
 
 3.Look at the number of canceled flights per day. Is there a pattern? Is the proportion of canceled flights related to the average delay? Use multiple dyplr operations, all on one line, concluding with ggplot(aes(x= ,y=)) + geom_point()
 ```{r}
@@ -56,5 +57,5 @@ flights %>%
   ggplot(aes(x = avg_dep_delay, y = cancel_prop)) + geom_point()
 ```
 
-According the graph, we see a general trend that the greater the average departure delay, the larger the proportion of flights cancelled.
+According the graph, we see a general trend that the greater the average departure delay, the larger the proportion of flights cancelled. There seems a pattern of positive correlation between these two variables.
 
